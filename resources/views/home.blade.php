@@ -8,7 +8,15 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <h1>Recent Reports</h1>
+                    <ul class="list-group">
+                        <li class="list-group-item report alert_orange row">
+                            <span class="person col-sm-4">Rob</span>
+                            <span class="report-date col-sm-4">16-may-2017</span>
+                        </li>
+                        <li class="list-group-item report alert_red">Fred</li>
+                        <li class="list-group-item report alert_black">James</li>
+                    </ul>
                 </div>
             </div>
         </div>

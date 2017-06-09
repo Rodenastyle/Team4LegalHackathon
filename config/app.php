@@ -176,10 +176,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        //Laravel Passport
-        Laravel\Passport\PassportServiceProvider::class,
-        //Laravel CORS
-        Barryvdh\Cors\ServiceProvider::class,
         //Laravel Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
     ],
