@@ -11,3 +11,30 @@
 .card-title {
   font-size: 24px;
 }
+
+.view-threat-level-query {
+  .alert-red {
+    color: $brand-danger;
+  }
+
+  .alert-yellow {
+    color: $brand-warning;
+  }
+
+  .alert-green {
+    color: $brand-success;
+  }
+}
+
+.alert-yellow .fa-flag {
+  color: $brand-warning;
+}
+
+.alert-red .fa-flag {
+  color: $brand-danger;
+}
+
+//Lawyer Data
+.view-lawyer-data .alert-red i {
+  color: $brand-danger;
+}

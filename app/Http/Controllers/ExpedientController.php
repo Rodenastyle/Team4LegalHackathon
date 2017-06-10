@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Expedient;
+use App\Http\Requests\ExpedientUpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ExpedientCreateRequest;
 use Illuminate\Support\Facades\Input;
@@ -46,11 +48,15 @@ class ExpedientController extends Controller
     public function store(ExpedientCreateRequest $request)
     {
         //
-        dd($request);
-        Auth::user()->expedients()->create([
+        $expedient = Auth::user()->expedients()->create([
             "defendant" => $request->defendant,
             "overview" => $request->overview
         ]);
+
+        $expedient->resources()->create([
+            "path" => $request->resource->store('local')
+        ]);
+
         return response()->redirectToRoute('expedients.index');
     }
 
@@ -86,10 +92,23 @@ class ExpedientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ExpedientCreateRequest $request, $id)
+    public function update(ExpedientUpdateRequest $request, $id)
     {
         //
-        //Update expedient data
+        $expedient = Auth::user()->expedients()->findOrFail($id);
+
+        $expedient->update([
+            "defendant" => $request->defendant,
+            "overview" => $request->overview
+        ]);
+
+        if($request->resource){
+            $expedient->resources()->create([
+                "path" => $request->resource->store('local')
+            ]);
+        }
+
+        return response()->redirectToRoute('expedients.index');
     }
 
     /**

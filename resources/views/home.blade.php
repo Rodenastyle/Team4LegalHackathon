@@ -5,25 +5,18 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="card-title">Your cases</span>
-                    <a href="./new_case.html" class="btn btn-warning pull-right">Add New</a>
+                    <span class="card-title">Welcome</span>
                 </div>
-                <div class="panel-body">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            Arrest of Xie Yang
-                            <a href="./open_case.html" class="btn btn-xs btn-info pull-right">Open</a>
-                        </div>
-                        <div class="list-group-item">
-                            Kidnapping of layer Wang Yu
-                            <a href="./open_case.html" class="btn btn-xs btn-info pull-right">Open</a>
-                        </div>
-                        <div class="list-group-item">
-                            Torture of Li Heping
-                            <a href="./open_case.html" class="btn btn-xs btn-info pull-right">Open</a>
+                @if( ! @Auth::user()->admin)
+                    <div class="panel-body text-center">
+                        <h1>Please indicate your present threat level</h1>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default"><i class="fa fa-flag alert-green" aria-hidden="true"></i> I'm safe for now</button>
+                            <button type="button" checked class="btn btn-default"><i class="fa fa-flag alert-yellow" aria-hidden="true"></i> I expect trouble</button>
+                            <button type="button" class="btn btn-default"><i class="fa fa-flag alert-red" aria-hidden="true"></i> I need urgent help</button>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

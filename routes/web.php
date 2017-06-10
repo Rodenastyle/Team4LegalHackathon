@@ -13,14 +13,16 @@
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(["middleware" => "web"], function(){
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-    Auth::routes();
+Auth::routes();
 
-    Route::group(["middleware" => "auth"], function(){
-        Route::resource('expedients', 'ExpedientController');
+Route::group(["middleware" => "auth"], function(){
+    Route::resource('expedients', 'ExpedientController');
+
+    Route::group(["middleware" => "admin"], function(){
+        Route::resource('lawyers', 'LawyerController');
     });
 });

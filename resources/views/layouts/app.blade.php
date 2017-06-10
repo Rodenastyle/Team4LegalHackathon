@@ -36,7 +36,13 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;<li><a href="{{ route('expedients.index') }}">Expedients</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        @if( ! @Auth::user()->admin)
+                            <li><a href="{{ route('expedients.index') }}">Expedients</a></li>
+                        @endif
+                        @if(@Auth::user()->admin)
+                            <li><a href="{{ route('lawyers.index') }}">Lawyers</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
