@@ -8,24 +8,6 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-//Alert reports
-
-.flag {
-  height: 22px;
-}
-
-.alert_orange .flag {
-  background-color: $brand-danger;
-}
-
-.alert_red .flag {
-  background-color: $brand-warning;
-}
-
-.alert_black .flag {
-  background-color: black;
-}
-
-.report .glyphicon {
-  margin-right: 8px;
+.card-title {
+  font-size: 24px;
 }

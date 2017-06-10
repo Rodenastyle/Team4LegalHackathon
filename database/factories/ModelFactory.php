@@ -22,3 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+$factory->define(App\Expedient::class, function(Faker\Generator $faker){
+    return [
+        "defendant" => $faker->name,
+        "overview" => $faker->paragraph(10)
+    ];
+});
+$factory->define(App\Resource::class, function(Faker\Generator $faker){
+    return [
+        "path" => "fakePath"
+    ];
+});
